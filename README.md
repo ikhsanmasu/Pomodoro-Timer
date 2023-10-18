@@ -5,5 +5,5 @@ Manage your work/study using Pomodoro technic
 
 download EXE file to use it: https://drive.google.com/file/d/1n8Cc9HdDlTWz9AHFwpCkiSda9DbKzhQi/view?usp=share_link <br />
 
-This game is part of 100 Days of Code The Complete Python Pro Bootcamp for 2023 from Udemy <br />
+This app is part of 100 Days of Code The Complete Python Pro Bootcamp for 2023 from Udemy <br />
 #This project uses Python (function, exception handling, etc), tkinter library, and JSON library
