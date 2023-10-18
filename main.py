@@ -1,6 +1,23 @@
 import tkinter.messagebox
-from tkinter import *
-import math
+from tkinter import Tk, Canvas, Label, Button
+
+# import os
+# import sys
+#
+# # use this directory when generating exe file
+# if getattr(sys, 'frozen', False):
+#     # If the application is run as a bundle, the PyInstaller bootloader
+#     # extends the sys module by a flag frozen=True and sets the app
+#     # path into variable _MEIPASS'.
+#     application_path = sys._MEIPASS
+# else:
+#     application_path = os.path.dirname(os.path.abspath(__file__))
+#
+# alarm_dir = application_path + "/alarm.wav"
+
+# alarm_dir = "alarm_.wav"
+# pygame.mixer.init()
+# pygame.mixer.music.load(alarm_dir)
 
 RED_COLOR = "#E00543"
 GREEN_COLOR = "#79D70F"
@@ -12,17 +29,29 @@ timer = None
 reps = 0
 
 
+def raise_above_all(window):
+    window.attributes('-topmost', 1)
+    window.attributes('-topmost', 0)
+
 def start_timer():
     global reps
     reps += 1
     if reps == 8:
+        # pygame.mixer.music.play()
+        raise_above_all(window)
+        tkinter.messagebox.showinfo("Stop Working", "Times to take a Long Break!")
         minute = LONG_BREAK_MIN
     elif reps % 2 == 0:
+        # pygame.mixer.music.play()
+        raise_above_all(window)
         tkinter.messagebox.showinfo("Stop Working", "Times to Relax!")
         minute = SHORT_BREAK_MIN
     else:
+        # pygame.mixer.music.play()
+        raise_above_all(window)
         tkinter.messagebox.showwarning("Start Working", "Times to Focus!")
         minute = WORK_MIN
+
     second = minute * 60
     countdown(second, minute)
     start_button["state"] = "disable"
@@ -43,7 +72,7 @@ def countdown(count, start_count):
     else:
         start_timer()
         marks = ""
-        work_sessions = math.floor(reps / 2)
+        work_sessions = reps // 2
         for _ in range(work_sessions):
             marks += "🍅"
         check_marks.config(text=marks, font=("Arial", 15, "bold"), bg=BACKGROUND_COLOR, fg="red")
